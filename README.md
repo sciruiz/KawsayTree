@@ -46,7 +46,7 @@ Mensaje que se debe mostrar tras ejecutar el comando. Si muestra algún error pu
 # Date: 2025-07-15
 # Version: 1.1.0
 # Usage:
-#   ./kawsaytree.sh -i sequence_list.txt -o output_prefix -d output_directory
+#   ./kawsaytree.sh -i sequence_list.txt
 #
 # Required Arguments:
 #   -i | --input       : Path to input accession codes list in .txt 
