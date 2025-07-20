@@ -8,12 +8,13 @@
 
 Tutorial adaptado de Chen et. al. (2025). Comparative analysis of the mitochondrial genomes of the softshelled turtles *Palea steindachneri* and *Pelodiscus axenaria* and phylogenetic implications for Trionychia. [Acceder aqui](https://www.nature.com/articles/s41598-025-90985-2)
 
-Objetivo: Reconstruir el análisis filogenético con Maximum Likelihood implementando un *pipeline*. 
+Objetivo: 
+* Implementar un *pipeline* para realizar análisis filogenéticos basados en Maximum Likelihood.
 
 ## Introducción
-Palea y Pelodiscus (orden Trionychia) son dos géneros de tortugas blandas que habitan en China y Vietnam. Las relaciones filogenéticas aún no se encunetran resueltas habiendo una discrepancia entre análisis basados en características morfológicas y secuencias de genes mitocondriales. Chen et al. (2025) secuenciaron los genomas mitocondriales completos de *P. steindachneri* y *P. axenaria*,
+Palea y Pelodiscus (orden Trionychia) son dos géneros de tortugas blandas que habitan en China y Vietnam. Las relaciones filogenéticas aún no se encunetran resueltas habiendo una discrepancia entre análisis basados en características morfológicas y secuencias de genes mitocondriales. Chen et al. (2025) secuenciaron los genomas mitocondriales completos de *P. steindachneri* y *P. axenaria*, que podría ayudar a resolver las relaciones filogenéticas dentro de este grupo. Por ello, se realizó una filogenia con los genes codantes mitocondriales concatenados de *Palea steindachneri* y *Pelodiscus axenaria* junto a otras especies de testudinos. 
 
-Se analizaron por separado los 13 genes codantes mitocondriales (PCGs) de *Palea steindachneri* y *Pelodiscus axenaria* junto con otras especies de Testudinos para considerar las diferencias evolutivas entre genes como tasas de sustitución, patrones de conservación y presión selectiva, y asegurar alineamientos precisos por codones. Este enfoque gen por gen permite limpiar y verificar cada alineamiento individualmente antes de combinarlos. Luego, los alineamientos se concatenan, lo que aumenta la robustez del análisis filogenético y permite integrar modelos de partición, donde cada gen conserva su modelo evolutivo específico. Esta estrategia maximiza la calidad y la resolución del análisis filogenético.
+Cada gen codante mitocondrial se analiza de manera independiente debido a que cada gen tendrá una tasa de tasa de mutación y presión selectiva diferente. Además, esta aproximación permite limpiar y verificar individualmente cada alineamiento antes de concatenarlo. Por ejemplo, puede realizar el alineamiento por alineamientos por codones (ej. TranslatorX) y/o eliminación de regiones ambiguas (ej. Gblocks). Esta metodología mejora la resolución del análisis filogenético y permite integrar modelos de partición, donde cada gen conserva su modelo evolutivo específico. 
 
 # Importante
 ⚠️ Antes de iniciar recuerde definir su carpeta de trabajo. 
@@ -208,7 +209,7 @@ Puede definir una carpeta para guardar los programas. Similar a `kawsaytree.sh`
 mkdir programas
 ```
 * Gblocks
-Alineamiento 
+Eliminación de caracteres ambiguos 
 ```
 #it creates a default folder
 wget https://ponce.cc/slackware/sources/repo/Gblocks_Linux64_0.91b.tar.Z
