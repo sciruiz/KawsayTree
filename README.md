@@ -15,7 +15,22 @@ Palea y Pelodiscus (orden Trionychia) son dos géneros de tortugas blandas que
 
 Se analizaron por separado los 13 genes codantes mitocondriales (PCGs) de *Palea steindachneri* y *Pelodiscus axenaria* junto con otras especies de Testudinos para considerar las diferencias evolutivas entre genes como tasas de sustitución, patrones de conservación y presión selectiva, y asegurar alineamientos precisos por codones. Este enfoque gen por gen permite limpiar y verificar cada alineamiento individualmente antes de combinarlos. Luego, los alineamientos se concatenan, lo que aumenta la robustez del análisis filogenético y permite integrar modelos de partición, donde cada gen conserva su modelo evolutivo específico. Esta estrategia maximiza la calidad y la resolución del análisis filogenético.
 
-# Ejecución 
+# Importante
+⚠️ Antes de iniciar recuerde definir su carpeta de trabajo. 
+
+⚠️ Revisar que los archivos `.sh` tengan permiso de escritura. Puede darse con `chmod 777 yourscript.sh`.
+
+⚠️ Siempre tener una copia de respaldo de sus datos. 
+
+El pipeline ha sido desarrollado está listo para ser usado después de ser descomprimido de la carpeta .zip. 
+* Uso local: Debe asegurarse que los programas estén instalados y tener su ambiente conda. En el Apéndice puede encontrar más información acerca de los requerimientos computacionales e instalación de programas.
+
+* Uso en AWS: los programas ya se encuentran instalados en el ambiente `turtles`. Puede descargar una copia del archivo .zip y descomprimirlo para ejecutarlo dentro de su carpeta de trabajo. Asegúrese de brindar los permisos de ejecuión necesarios. Las carpetas anteriores vistas en clase no se encuentran actualizadas. Puede usarlo para constratar las líneas de comando adicionadas para resolver los `bugs`, vistos en clase.
+
+```
+conda activate turtles
+```
+# Ejecución del pipeline
 
 Ejemplo:
 ```
@@ -46,18 +61,13 @@ Nota: Presione *Enter* para salir de esta ventana. Automáticamente se guardará
 ./kawsay.sh -i yourlist.txt
 ```
 
-También puede ejecutar cada línea del *script* y ver cómo funciona. 
+También puede ejecutarse línea a línes y ver cómo funciona. 
 
 ## Pipeline: KawsayTree
 ![A cute cat](kawsay_pipeline.png "Pipeline")
 Pipeline `KawsayTree`. A. Perspectiva general. B. Desglose. 
+
 ## Ejecución línea a línea del script. 
-
-⚠️ Antes de iniciar recuerde definir su carpeta de trabajo. En el Apéndice puede encontrar más información acerca de los requerimientos computacionales e instalación de programas.
-
-⚠️ Revisar que los archivos `.sh` tengan permiso de escritura. Puede darse con `chmod 777 yourscript.sh`.
-
-⚠️ Siempre tener una copia de respaldo de sus datos. 
 
 > Las siguientes instrucciones explican paso a paso de la lógica detrás de la construcción del pipeline `kawsay.sh`. Algunos pasos fueron reutilizados del prototipo original, mientras que otros fueron ajustados o añadidos posteriormente. También se incluyen preguntas a modo de  validación para asegurar que se esté manejando los datos esperados y reducir posibles errores durate su ejecución.
 
