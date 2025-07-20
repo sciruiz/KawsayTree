@@ -50,7 +50,7 @@ También puede ejecutar cada línea del *script* y ver cómo funciona.
 
 ## Pipeline: KawsayTree
 ![A cute cat](kawsay_pipeline.png "Pipeline")
-
+Pipeline `KawsayTree`. A. Perspectiva general. B. Desglose. 
 ## Ejecución línea a línea del script. 
 
 ⚠️ Antes de iniciar recuerde definir su carpeta de trabajo. En el Apéndice puede encontrar más información acerca de los requerimientos computacionales e instalación de programas.
