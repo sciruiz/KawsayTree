@@ -1,4 +1,3 @@
-# KawsayTree
 # Desarrollo de pipelines 
 
 **Autor: Isabel Ruiz**
