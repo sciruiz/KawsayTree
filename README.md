@@ -34,9 +34,9 @@ conda activate turtles
 
 Ejemplo:
 ```
-./kawsay.sh -h
+./kawsaytree.sh -h
 ```
-Mensaje que se debe mostrar tras ejecutar el comando. Si muestra algún error puede ser porque debe darle permiso de ejecución y escritura al *script*, para ello puede utilizar `chmod 777 kawsay.sh`. 
+Mensaje que se debe mostrar tras ejecutar el comando. Si muestra algún error puede ser porque debe darle permiso de ejecución y escritura al *script*, para ello puede utilizar `chmod 777 kawsaytree.sh`. 
 ```
 =============================================================================
 # Script Name: kawsaytree.sh
@@ -58,7 +58,7 @@ Nota: Presione *Enter* para salir de esta ventana. Automáticamente se guardará
 
 **Comando para ejecutar.**
 ```
-./kawsay.sh -i yourlist.txt
+./kawsaytree.sh -i yourlist.txt
 ```
 
 También puede ejecutarse línea a línes y ver cómo funciona. 
@@ -69,7 +69,7 @@ Pipeline `KawsayTree`. A. Perspectiva general. B. Desglose.
 
 ## Ejecución línea a línea del script. 
 
-> Las siguientes instrucciones explican paso a paso de la lógica detrás de la construcción del pipeline `kawsay.sh`. Algunos pasos fueron reutilizados del prototipo original, mientras que otros fueron ajustados o añadidos posteriormente. También se incluyen preguntas a modo de  validación para asegurar que se esté manejando los datos esperados y reducir posibles errores durate su ejecución.
+> Las siguientes instrucciones explican paso a paso de la lógica detrás de la construcción del pipeline `kawsaytree.sh`. Algunos pasos fueron reutilizados del prototipo original, mientras que otros fueron ajustados o añadidos posteriormente. También se incluyen preguntas a modo de  validación para asegurar que se esté manejando los datos esperados y reducir posibles errores durate su ejecución.
 
 ### 1. Descarga y procesamiento de las secuencias 
 La lista de secuencias está disponible en el artículo de Chen et. al. (2025). Utilizaremos solo los genes codantes de proteínas (PCGs) mitocondriales. 
@@ -165,7 +165,7 @@ perl ../../programas/FASconCAT-G/FASconCAT-G_v1.06.1.pl -p -p -s
 ```
 Mover los archivos generados a la carpeta `concatenated/`
 ### 4. Análisis filogenético
-Vamos a correr el archivo en IQTREE2 o IQTREE3. El ejemplo mostrado abajo es en IQTREE3, no obstante en el *script* `kawsay.sh` se usa IQTREE2. 
+Vamos a correr el archivo en IQTREE2 o IQTREE3. El ejemplo mostrado abajo es en IQTREE3, no obstante en el *script* `kawsaytree.sh` se usa IQTREE2. 
 ```{bash}
 #help for iqtree3
 programas/iqtree-3.0.1-Linux/bin/iqtree3 -h
@@ -202,7 +202,7 @@ conda install bioconda::mafft
 
 **Ejecutables**
 
-Puede definir una carpeta para guardar los programas. Similar a `kawsay.sh`
+Puede definir una carpeta para guardar los programas. Similar a `kawsaytree.sh`
 
 ```
 mkdir programas
@@ -238,7 +238,7 @@ Reconstrucciones filogenéticas con *Maximum Likelihood*
 ```
 conda install bioconda::iqtree
 ```
-Opcional: si quiere usar de manera local IQTREE3. Puede actualizar el *script* `kawsay.sh` para utilizarlo. 
+Opcional: si quiere usar de manera local IQTREE3. Puede actualizar el *script* `kawsaytree.sh` para utilizarlo. 
 ```{bash}
 wget https://github.com/iqtree/iqtree3/releases/download/v3.0.1/iqtree-3.0.1-Linux.tar.gz
 tar xvf iqtree-3.0.1-Linux.tar.gz
