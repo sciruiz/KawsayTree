@@ -49,7 +49,7 @@ Nota: Presione *Enter* para salir de esta ventana. Automáticamente se guardará
 También puede ejecutar cada línea del *script* y ver cómo funciona. 
 
 ## Pipeline: KawsayTree
-![A cute cat](kawsay.png "Pipeline")
+![A cute cat](kawsay_pipeline.png "Pipeline")
 
 ## Ejecución línea a línea del script. 
 
