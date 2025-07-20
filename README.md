@@ -61,12 +61,12 @@ Pipeline `KawsayTree`. A. Perspectiva general. B. Desglose.
 
 > Las siguientes instrucciones explican paso a paso de la lógica detrás de la construcción del pipeline `kawsay.sh`. Algunos pasos fueron reutilizados del prototipo original, mientras que otros fueron ajustados o añadidos posteriormente. También se incluyen preguntas a modo de  validación para asegurar que se esté manejando los datos esperados y reducir posibles errores durate su ejecución.
 
-### Descarga y procesamiento de las secuencias 
+### 1. Descarga y procesamiento de las secuencias 
 La lista de secuencias está disponible en el artículo de Chen et. al. (2025). Utilizaremos solo los genes codantes de proteínas (PCGs) mitocondriales. 
 
 >🔎 Revisar el artículo para encontrar la lista de secuencias. ¿Cuántos secuencias son? ¿Cuántes genes mitocondriales espera encontrar por especie?
 
-1. Descargar PCS del GenBank, puede ingresar la lista directamente e Genbank (base de datos: `nucleotide`), `sent to`, `FASTA`, y seleccionar la opcion `Protein Coding Sequences`. 
+1.1. Descargar PCS del GenBank, puede ingresar la lista directamente e Genbank (base de datos: `nucleotide`), `sent to`, `FASTA`, y seleccionar la opcion `Protein Coding Sequences`. 
 
 ¿Qué comando podría utilizar para descargar las secuencias desde la terminal? ¿Qué comando utilizaría para saber cuántas secuencias son? ¿Qué formato tiene el archivo?
 
@@ -84,11 +84,11 @@ NC_021371.1
 
 Nota: Cuando parece no poder ejecutarse un archivo desde la terminal, puede convertir el archivo a Unix. Usualmente los archivos generados en windows tienen caracteres innecesarios no visibles para el usuario. Puede usar `dos2unix` o `sed -i 's/\r//' your_file.txt`
 
-2. *Pasar a un sola línea*
+1.2. *Pasar a un sola línea*
 
 Usar el script `onerow_mitogenome.sh`
 
-3. *Renombrar el archivo fasta*
+1.3. *Renombrar el archivo fasta*
 
 Usar el script `rename.sh`
 
@@ -100,7 +100,7 @@ while read -r gene || [[ -n "$gene" ]]; do count=$(grep -ow "$gene" renamed.fast
 
 * Realizar una revision manual del nombre de las secuencias por si hay ajustes puntuales que pueden no estar contemplados por su script. . 
 
-4. *Separar cada PCG a un solo archivo*
+1.4. *Separar cada PCG a un solo archivo*
 Usar el script `separate_files.sh`. Luego, para eliminar toda informacion que este despues del ".GEN" usar. 
 ```{bash}
 sed -i 's/\..*//' *.fasta
@@ -109,10 +109,8 @@ sed -i 's/\..*//' *.fasta
 ```{bash}
 find . -type f | wc -l
 ```
-5. Uniformizar la longitud del nombre a un numero de caracteres dado 
+1.5. Uniformizar la longitud del nombre a un numero de caracteres dado 
 >*¿por qué debe realizarse esto?* Los *scripts* que transforman archivos `.fasta` con saltos de lineas (Secuencia A) a una sola lina (Secuencia B) en este pipeline se guían a partir del nombre de la secuencia para separarlo. 
-
-
 
 ```{bash}
 # Por ejemplo, este es el comando para onerow.sh detallado. 
@@ -149,14 +147,14 @@ mv *.htm html/
 
 Transformarmos de `.fasta-gb` a `.fasta`. Usaremos el script `fasta-gb2fasta.sh`.
 
-### Concatenar
+### 3. Concatenar
 Usaremos [FASconCAT-G](https://github.com/PatrickKueck/FASconCAT-G). Debe ubicarse en la carpeta que contiene a los genes alineados y trimeados con GBLOCKs. 
 ```{bash}
 cd gblocks/onerow/
 perl ../../programas/FASconCAT-G/FASconCAT-G_v1.06.1.pl -p -p -s
 ```
 Mover los archivos generados a la carpeta `concatenated/`
-### Análisis filogenético
+### 4. Análisis filogenético
 Vamos a correr el archivo en IQTREE2 o IQTREE3. El ejemplo mostrado abajo es en IQTREE3, no obstante en el *script* `kawsay.sh` se usa IQTREE2. 
 ```{bash}
 #help for iqtree3
@@ -165,7 +163,7 @@ programas/iqtree-3.0.1-Linux/bin/iqtree3 -h
 programas/iqtree-3.0.1-Linux/bin/iqtree3 -s concatenated/FcC_supermatrix.phy -m MFP -B 1000
 ```
 
-### Visualizar el árbol filogenético
+## Visualizar el árbol filogenético
 Podemos usar el ejecutable FigTree. El archivo a abrir termina en `.treefile`.
 Recomendación: Puede renonmbrar los nombres en el archivo usando `sed`. 
 ```{bash}
