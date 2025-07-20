@@ -22,8 +22,8 @@ Se analizaron por separado los 13 genes codantes mitocondriales (PCGs) de *Palea
 
 ⚠️ Siempre tener una copia de respaldo de sus datos. 
 
-El pipeline ha sido desarrollado está listo para ser usado después de ser descomprimido de la carpeta .zip. 
-* Uso local: Debe asegurarse que los programas estén instalados y tener su ambiente conda. En el Apéndice puede encontrar más información acerca de los requerimientos computacionales e instalación de programas.
+El archivo `kawsaytree.sh` está listo para ser usado después de ser descomprimido de la carpeta .zip. 
+* Uso local: Debe asegurarse que los programas estén instalados, ya sea de manera local o mediante `conda`. En el Apéndice puede encontrar más información acerca de los requerimientos computacionales e instalación de programas.
 
 * Uso en AWS: los programas ya se encuentran instalados en el ambiente `turtles`. Puede descargar una copia del archivo .zip y descomprimirlo para ejecutarlo dentro de su carpeta de trabajo. Asegúrese de brindar los permisos de ejecuión necesarios. Las carpetas anteriores vistas en clase no se encuentran actualizadas. Puede usarlo para constratar las líneas de comando adicionadas para resolver los `bugs`, vistos en clase.
 
